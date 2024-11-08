@@ -292,7 +292,6 @@ class ApiClient:
         :param response_types_map: dict of response types.
         :return: ApiResponse
         """
-
         msg = "RESTResponse.read() must be called before passing it to response_deserialize()"
         assert response_data.data is not None, msg
 
