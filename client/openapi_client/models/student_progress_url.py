@@ -82,10 +82,7 @@ class StudentProgressUrl(BaseModel):
 
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
-
-        import pdb;
-        pdb.set_trace()
-
+        
         _obj = cls.model_validate({
             "unique_student_identifier": obj.get("unique_student_identifier"),
             "course_id": obj.get("course_id"),
