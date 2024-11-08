@@ -26,9 +26,9 @@ class StudentProgressUrl(BaseModel):
     """
     Serializer for course renders
     """ # noqa: E501
-    unique_student_identifier: StrictStr
+    unique_student_identifier: Optional[StrictStr] = None
     course_id: Optional[StrictStr] = None
-    progress_url: StrictStr
+    progress_url: Optional[StrictStr] = None  # Make it optional as well
     __properties: ClassVar[List[str]] = ["unique_student_identifier", "course_id", "progress_url"]
 
     model_config = ConfigDict(
@@ -82,6 +82,9 @@ class StudentProgressUrl(BaseModel):
 
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
+
+        import pdb;
+        pdb.set_trace()
 
         _obj = cls.model_validate({
             "unique_student_identifier": obj.get("unique_student_identifier"),
